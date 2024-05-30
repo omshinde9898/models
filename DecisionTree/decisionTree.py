@@ -14,10 +14,29 @@ class LeafNode:
 
 
 class DecisionTree:
+    """
+    This class implements Decision Tree Algorithm from scratch in python
+    create a object of DecisionTree class to use further functions
+
+    Example: 
+
+    tree = DecisionTree(max_depth=42)
+
+    max_depth : defines maximum value of depth tree can reach
+    """
+
     def __init__(self, max_depth=None):
         self.max_depth = max_depth
 
     def fit(self, X, y):
+        """
+        fit function is used to train decision tree model on training data
+        creates a tree of nodes representing various features until max_depth is reached
+
+        Example
+        tree.fit(X = X_train ,y = y_train)
+
+        """
         self.n_classes = len(set(y))
         self.n_features = X.shape[1]
         self.tree = self._build_tree(X, y)
